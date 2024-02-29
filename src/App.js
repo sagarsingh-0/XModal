@@ -9,16 +9,16 @@ const XModal = () => {
     dob: "",
   });
 
+  const openModal = () =>  setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
-  const handelOpenModal = () => {
-    setFormData({ username: "", email: "", phone: "", dob: "" }); // Reset form data when opening the modal
-    setIsOpen(true);
-  };
+  // const handelOpenModal = () => {
+  //   setFormData({ username: "", email: "", phone: "", dob: "" }); // Reset form data when opening the modal
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -70,7 +70,7 @@ const XModal = () => {
     <div className={`app ${isOpen ? "dimmed" : ""}`} onClick={handleChange}>
       <header>User Details Modal</header>
       <center>
-        <button className="submit-button" onClick={handelOpenModal}>
+        <button className="submit-button" onClick={openModal}>
           Open Form
         </button>
       </center>
