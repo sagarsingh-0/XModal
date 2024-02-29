@@ -16,6 +16,11 @@ const XModal = () => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
+  const handleOpenModal = () => {
+    setFormData({ username: "", email: "", phone: "", dob: "" }); // Reset form data when opening the modal
+    setIsOpen(true);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const { username, email, phone, dob } = formData;
@@ -66,7 +71,7 @@ const XModal = () => {
     <div className={`app ${isOpen ? "dimmed" : ""}`} onClick={handleChange}>
       <header>User Details Modal</header>
       <center>
-        <button className="submit-button" onClick={openModal}>
+        <button className="submit-button" onClick={handleOpenModal}>
           Open Form
         </button>
       </center>
