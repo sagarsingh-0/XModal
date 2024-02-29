@@ -13,9 +13,13 @@ const XModal = () => {
   const closeModal = () => setIsOpen(false);
 
   const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.id]: event.target.value });
+    // Check if the click event occurred inside the modal content
+    if (!event.currentTarget.contains(event.target)) {
+      // Update form data only if the click is outside the modal content
+      setFormData({ ...formData, [event.target.id]: event.target.value });
+    }
   };
-
+  
   // const handelOpenModal = () => {
   //   setFormData({ username: "", email: "", phone: "", dob: "" }); // Reset form data when opening the modal
   // };
